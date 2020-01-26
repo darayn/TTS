@@ -1,0 +1,60 @@
+ > Using CUDA:  True
+ > Number of GPUs:  1
+ > Git Hash: 9e8d6fa
+ > Experiment folder: ../ljspeech-graves-January-26-2020_08+35AM-9e8d6fa
+ > Setting up Audio Processor...
+ | > sample_rate:22050
+ | > num_mels:80
+ | > min_level_db:-100
+ | > frame_shift_ms:12.5
+ | > frame_length_ms:50
+ | > ref_level_db:20
+ | > num_freq:1025
+ | > power:1.5
+ | > preemphasis:0.98
+ | > griffin_lim_iters:60
+ | > signal_norm:True
+ | > symmetric_norm:True
+ | > mel_fmin:0
+ | > mel_fmax:8000.0
+ | > max_norm:4.0
+ | > clip_norm:True
+ | > do_trim_silence:True
+ | > sound_norm:False
+ | > n_fft:2048
+ | > hop_length:275
+ | > win_length:1100
+ > Using model: Tacotron2
+ | > Num output units : 1025
+
+ > Model has 28921234 parameters
+ > Number of outputs per iteration: 7
+
+ > DataLoader initialization
+ | > Use phonemes: True
+   | > phoneme language: en-us
+ | > Number of instances : 12000
+ | > Max length sequence: 187
+ | > Min length sequence: 5
+ | > Avg length sequence: 98.45391666666667
+ | > Num. instances discarded by max-min (max=150, min=6) seq limits: 581
+ | > Batch group size: 0.
+
+ > Epoch 0/1
+   | > Step:24/178  GlobalStep:25  PostnetLoss:5.84601  DecoderLoss:3.91607  StopLoss:2.82033  AlignScore:0.0129  GradNorm:2.17688  GradNormST:3.24634  AvgTextLen:55.2  AvgSpecLen:310.9  StepTime:1.01  LoaderTime:51.36  LR:0.000100
+   | > Step:49/178  GlobalStep:50  PostnetLoss:4.03849  DecoderLoss:3.69494  StopLoss:2.80243  AlignScore:0.0101  GradNorm:4.55654  GradNormST:3.61740  AvgTextLen:74.5  AvgSpecLen:420.5  StepTime:1.28  LoaderTime:13.54  LR:0.000100
+   | > Step:74/178  GlobalStep:75  PostnetLoss:2.48017  DecoderLoss:2.56085  StopLoss:3.31727  AlignScore:0.0080  GradNorm:2.31342  GradNormST:12.34711  AvgTextLen:89.4  AvgSpecLen:484.4  StepTime:1.76  LoaderTime:16.32  LR:0.000100
+   | > Step:99/178  GlobalStep:100  PostnetLoss:2.11470  DecoderLoss:1.67318  StopLoss:2.67166  AlignScore:0.0081  GradNorm:0.72041  GradNormST:24.96178  AvgTextLen:100.3  AvgSpecLen:555.3  StepTime:1.67  LoaderTime:0.05  LR:0.000100
+   | > Step:124/178  GlobalStep:125  PostnetLoss:1.75413  DecoderLoss:1.60852  StopLoss:2.13853  AlignScore:0.0082  GradNorm:0.48988  GradNormST:6.71950  AvgTextLen:111.8  AvgSpecLen:626.3  StepTime:1.70  LoaderTime:17.14  LR:0.000100
+   | > Step:149/178  GlobalStep:150  PostnetLoss:1.62943  DecoderLoss:1.55994  StopLoss:1.96178  AlignScore:0.0089  GradNorm:0.47881  GradNormST:8.05626  AvgTextLen:121.1  AvgSpecLen:672.2  StepTime:1.67  LoaderTime:65.59  LR:0.000100
+   | > Step:174/178  GlobalStep:175  PostnetLoss:1.64149  DecoderLoss:1.49610  StopLoss:1.27622  AlignScore:0.0072  GradNorm:0.80554  GradNormST:6.65435  AvgTextLen:138.5  AvgSpecLen:747.9  StepTime:1.75  LoaderTime:0.08  LR:0.000100
+   | > EPOCH END -- GlobalStep:179  AvgPostnetLoss:3.05413  AvgDecoderLoss:2.52647  AvgStopLoss:2.60239  AvgAlignScore:0.009485  EpochTime:272.78  AvgStepTime:1.52  AvgLoaderTime:19.56
+
+ > Validation
+   | > TotalLoss: 8.09333   PostnetLoss: 2.99385 - 2.99385  DecoderLoss:1.69806 - 1.69806 StopLoss: 3.40142 - 3.40142  AlignScore: 0.0214 : 0.0214
+   | > TotalLoss: 7.20737   PostnetLoss: 3.45463 - 3.25926  DecoderLoss:1.52903 - 1.51725 StopLoss: 2.22372 - 2.70530  AlignScore: 0.0094 : 0.0140
+   | > TotalLoss: 6.85580   PostnetLoss: 3.46836 - 3.32934  DecoderLoss:1.50607 - 1.51564 StopLoss: 1.88136 - 2.31523  AlignScore: 0.0089 : 0.0117
+warning: audio amplitude out of range, auto clipped.
+ | > Training Loss: 3.05413   Validation Loss: 3.34658
+
+ > BEST MODEL (3.34658) : ../ljspeech-graves-January-26-2020_08+35AM-9e8d6fa/best_model.pth.tar
