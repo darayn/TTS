@@ -44,7 +44,7 @@ class MyDataset(Dataset):
         self.batch_group_size = batch_group_size
         self.items = meta_data
         self.outputs_per_step = outputs_per_step
-        self.sample_rate = ap.sample_rate
+#         self.sample_rate = ap.sample_rate
         self.cleaners = text_cleaner
         self.min_seq_len = min_seq_len
         self.max_seq_len = max_seq_len
