@@ -41,10 +41,10 @@ class MyDataset(Dataset):
             enable_eos_bos (bool): enable end of sentence and beginning of sentences characters.
             verbose (bool): print diagnostic information.
         """
-        self.batch_group_size = batch_group_size
+        self.batch_group_size = 0
         self.items = meta_data
         self.outputs_per_step = outputs_per_step
-        self.sample_rate = ap.sample_rate
+        #self.sample_rate = ap.sample_rate
         self.cleaners = text_cleaner
         self.min_seq_len = min_seq_len
         self.max_seq_len = max_seq_len
@@ -133,9 +133,11 @@ class MyDataset(Dataset):
         idxs = np.argsort(lengths)
         new_items = []
         ignored = []
+        min_l = self.min_seq_len
+        max_l = self.max_seq_len
         for i, idx in enumerate(idxs):
             length = lengths[idx]
-            if length < self.min_seq_len or length > self.max_seq_len:
+            if length < 0 or length > float("inf"):
                 ignored.append(idx)
             else:
                 new_items.append(self.items[idx])
