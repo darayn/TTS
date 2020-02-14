@@ -91,7 +91,7 @@ def format_data(data):
         speaker_ids = [
             speaker_mapping[speaker_name] for speaker_name in speaker_names
         ]
-        speaker_ids = torch.LongTensor(speaker_ids).float() #float_func added at end
+        speaker_ids = torch.LongTensor(speaker_ids)#.float() #float_func added at end
     else:
         speaker_ids = None
 
