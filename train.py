@@ -84,7 +84,7 @@ def format_data(data):
     mel_input = data[4]
     mel_lengths = data[5]
     stop_targets = data[6]
-    print(stop_targets)
+   
     avg_text_length = torch.mean(text_lengths.float())
     avg_spec_length = torch.mean(mel_lengths.float())
 
@@ -100,7 +100,7 @@ def format_data(data):
     stop_targets = stop_targets.view(text_input.shape[0],
                                      stop_targets.size(1) // c.r, -1)
     stop_targets = (stop_targets.sum(2) >
-                    0.0).unsqueeze(2).float().squeeze(2)
+                    0.0).unsqueeze(2).long().squeeze(2)
 
     # dispatch data to GPU
     if use_cuda:
