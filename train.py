@@ -84,7 +84,6 @@ def format_data(data):
     mel_input = data[4]
     mel_lengths = data[5]
     stop_targets = data[6]
-   
     avg_text_length = torch.mean(text_lengths.float())
     avg_spec_length = torch.mean(mel_lengths.float())
 
@@ -100,7 +99,7 @@ def format_data(data):
     stop_targets = stop_targets.view(text_input.shape[0],
                                      stop_targets.size(1) // c.r, -1)
     stop_targets = (stop_targets.sum(2) >
-                    0.0).unsqueeze(2).long().squeeze(2)
+                    0.0).unsqueeze(2).float().squeeze(2)
 
     # dispatch data to GPU
     if use_cuda:
@@ -168,7 +167,7 @@ def train(model, criterion, criterion_st, optimizer, optimizer_st, scheduler,
 
         # loss computation
         stop_loss = criterion_st(stop_tokens,
-                                 stop_targets.long() if c.stopnet else torch.zeros(1)
+                                 stop_targets) if c.stopnet else torch.zeros(1)
         if c.loss_masking:
             decoder_loss = criterion(decoder_output, mel_input, mel_lengths)
             if c.model in ["Tacotron", "TacotronGST"]:
